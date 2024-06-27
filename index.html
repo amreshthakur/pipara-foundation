@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <!--------------- Top-heading Start tag --------------->
+        <div class="top-heading">
+            <a class="contact-link" href="tel:+977-9819829717">+977 9819829717</a>
+            <a class="contact-link" href="mailto:amresh.csit@gmail.com">Email us on amresh.csit@gmail.com</a>
+            <a class="contact-link" href="https://maps.app.goo.gl/1BemBusdKfCnxJZz5">Visit us</a>
+
+            <ul class="social-links">
+                <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+        <!--------------- Top-heading End tag --------------->
+        <!--------------- Navgation bar openning tag Start tag --------------->
+        <nav id="navbar" class="navbar">
+            <input type="checkbox" id="nav-toggle">
+            <div class="logo"><a href="">Orangic Company</a></div>
+            <ul class="links">
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">About us</a>
+                </li>
+                <li>
+                    <a href="">Contact us</a>
+                </li>
+                <li>
+                    <a href="">Services</a>
+                </li>
+                <li>
+                    <a href="">Download</a>
+                </li>
+                <li>
+                    <a href="">Projects</a>
+                </li>
+                <li>
+                    <button onclick="document.getElementById('Login-box').style.display='block'"
+                        style="width:auto;">Login</button>
+
+                    <button onclick="document.getElementById('Signup-box').style.display='block'"
+                        style="width:auto;">Sign Up</button>
+                </li>
+            </ul>
+            <label for="nav-toggle" class="icon-burger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </label>
+        </nav>
+    </header>
+  
+
+    <main>
+
+        <!-- Login User validation for Authentication fields  and Username and Password with if user can do forget password -->
+        <div id="Login-box" class="modal">
+            <form class="form animate" id="loginForm" action="/login_action.php" method="post">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('Login-box').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                </div>
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" id="loginUname" required>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" id="loginPassword" required>
+                    <button type="submit">Login</button>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('Login-box').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                    <span class="password">Forgot <a href="#">password?</a></span>
+                </div>
+            </form>
+        </div>
+
+        <!-- Register User validation for Authentication fields image and Name  -->
+        <div id="Signup-box" class="modal">
+            <form class="form animate" id="signupForm" action="/register_action.php" method="post">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('Signup-box').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                </div>
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                    <br><br>
+                    <input type="text" placeholder="Enter Username" name="uname" id="signupUname" required>
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" placeholder="Enter Email" name="email" id="email" required>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" id="signupPassword" required>
+                    <button type="submit">Sign Up</button>
+                </div>
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('Signup-box').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+        <!-- ------------------------------------------------------------------------- -->
+
+        <!--------------- h --------------->
+
+
+
+    </main>
+    <footer>
+
+
+
+
+    </footer>
+
+
+
+
+
+
+<script src="javaScript/javaScript.js"></script>
+
+</body>
+
+</html>

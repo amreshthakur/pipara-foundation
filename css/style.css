@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+
+
+/* --------------------------------------------------------------------------------- */
+/* Top - Heading with telephone and Placeholder shown  */
+  
+
+
+.Top-Heading{
+  padding: 1px;
+  text-decoration: none;
+  background-color: #130909;
+
+}
+.Top-Heading a{
+text-decoration: none;
+}
+
+
+.top-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-bottom: 2px solid #ccc;
+}
+
+.contact-link {
+  color: #333;
+  text-decoration: none;
+  margin: 5px 0;
+  font-size: 1.2em;
+}
+
+.contact-link:hover {
+  color: #007bff;
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-links li {
+  display: inline;
+}
+
+.social-links a {
+  color: #333;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #007bff;
+}
+
+/* Responsive Design */
+@media (min-width: 600px) {
+  .top-heading {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 5px 27px;
+    }
+  
+  .contact-link {
+      font-size: 1em;
+      margin: 0 10px;
+  }
+  
+  .social-links {
+      margin-top: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .top-heading {
+    padding: 5px 57px;
+  }
+
+  .contact-link {
+      font-size: 1.2em;
+      margin: 0 15px;
+  }
+
+  .social-links {
+      gap: 20px;
+  }
+}
+/* --------------------------------------------------------------------------------- */
+/*  navgation bar openning tag  */
+
+nav {
+    position: absolute;
+    z-index:1;
+    left: 0;
+    right: 0;
+    font-family: "Montserrat", "sans-serif";
+    height: 60px;
+    background-color: #000000;
+    padding: 0 1%;
+}
+
+nav .logo {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+}
+nav .logo a{
+    text-decoration: none;
+    color: #fff;
+    
+
+}
+
+nav .links {
+    float: right;
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav .links li {
+    list-style: none;
+}
+
+nav .links a {
+    display: block;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+nav .links a:hover {
+    color: rgb(80, 255, 5);
+}
+
+nav .links a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(218, 3, 3);
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+nav .links a:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+    color: white;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+nav .icon-burger {
+    display: none;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+nav .icon-burger .line {
+    width: 30px;
+    height: 5px;
+    background-color: #fff;
+    margin: 5px;
+    border-radius: 3px;
+    transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    nav .logo {
+        float: none;
+        width: auto;
+        justify-content: center;
+    }
+
+    nav .links {
+        float: none;
+        position:fixed;
+        cursor: pointer;
+        z-index: 9000;
+        left: 0;
+        right: 0;
+        top: 103px;
+        bottom: 100%;
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+    }
+
+    nav .links a {
+        font-size: 20px;
+    }
+
+    nav :checked~.links {
+        bottom: 0;
+    }
+
+    nav .icon-burger {
+        display: block;
+    }
+
+    nav :checked~.icon-burger .line:nth-child(1) {
+        transform: translateY(10px) rotate(225deg);
+    }
+
+    nav :checked~.icon-burger .line:nth-child(3) {
+        transform: translateY(-10px) rotate(-225deg);
+    }
+
+    nav :checked~.icon-burger .line:nth-child(2) {
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 600px) {
+  nav .links {
+    top: 200px;
+  }
+}
+@media screen and (max-width: 590px) {
+  nav .links {
+
+    top: 200px;
+
+}
+
+}
+
+/*  navgation bar closing tag */
+
+/* -------------------------------------------------------------------- */
+
+/* Style for the modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Style for the modal content/box */
+.form {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the close button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Style the avatar */
+.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Style the inputs */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Style the buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Style the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Add a gray background color to the form container */
+.container {
+  padding: 16px;
+  background-color: #f1f1f1;
+}
+
+/* Add some margin to the top of the form */
+.form {
+  margin-top: 30px;
+}
+
+
+/* ----------------------------------------------------------------------- */

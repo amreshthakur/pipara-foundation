@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login and Registration</title>
+</head>
+
+<body>
+
+    <button onclick="document.getElementById('Login-box').style.display='block'" style="width:auto;">Login</button>
+
+    <button onclick="document.getElementById('Signup-box').style.display='block'" style="width:auto;">Sign Up</button>
+    
+
+
+
+
+
+
+    <div id="Login-box" class="modal">
+        <form class="form animate" id="loginForm" action="/login_action.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('Login-box').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="images.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" id="loginUname" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="loginPassword" required>
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('Login-box').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                <span class="password">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+    <div id="Signup-box" class="modal">
+        <form class="form animate" id="signupForm" action="/register_action.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('Signup-box').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <img src="images.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" id="signupUname" required>
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter Email" name="email" id="email" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="signupPassword" required>
+                <button type="submit">Sign Up</button>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('Signup-box').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get the modals
+        var modalLogin = document.getElementById('Login-box');
+        var modalSignup = document.getElementById('Signup-box');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modalLogin) {
+                modalLogin.style.display = "none";
+            }
+            if (event.target == modalSignup) {
+                modalSignup.style.display = "none";
+            }
+        }
+
+        // Form validation for Sign-Up
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            var username = document.getElementById('signupUname').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('signupPassword').value;
+
+            // Basic validation
+            if (username === '' || email === '' || password === '') {
+                alert('Please fill in all fields.');
+                event.preventDefault();
+                return false;
+            }
+
+            // Example regex for password strength (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
+            var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{8,}$/;
+            if (!passwordPattern.test(password)) {
+                alert('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.');
+                event.preventDefault();
+                return false;
+            }
+
+            // Further validation for email can be added
+        });
+
+        // Form validation for Login
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            var username = document.getElementById('loginUname').value;
+            var password = document.getElementById('loginPassword').value;
+
+            // Basic validation
+            if (username === '' || password === '') {
+                alert('Please fill in all fields.');
+                event.preventDefault();
+                return false;
+            }
+
+            // Example regex for password strength (minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character)
+            var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{8,}$/;
+            if (!passwordPattern.test(password)) {
+                alert('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.');
+                event.preventDefault();
+                return false;
+            }
+
+            // If validation passes, the form will be submitted
+        });
+    </script>
+</body>
+
+</html>
